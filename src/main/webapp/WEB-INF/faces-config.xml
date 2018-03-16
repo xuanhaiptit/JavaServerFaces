@@ -21,13 +21,35 @@
 			<value>#{customerBo}</value>
 		</managed-property>
 	</managed-bean>
- 	<navigation-rule>
-		<display-name>index</display-name>
-		<from-view-id>/view/jsp/index.jsf</from-view-id>
+	
+	<managed-bean>
+		<managed-bean-name>MH02Bean</managed-bean-name>
+		<managed-bean-class>com.manage.insurance.bean.MH02Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+		<property-name>companyLogic</property-name>
+		<value>#{companyLogic}</value>
+		</managed-property>
+	</managed-bean>
+	
+	<navigation-rule>
+		<display-name>MH01</display-name>
+		<from-view-id>/view/jsp/MH01.jsf</from-view-id>
 		<navigation-case>
-			<from-outcome>test</from-outcome>
-			<to-view-id>/view/jsp/test.jsf</to-view-id>
+			<from-outcome>MH02</from-outcome>
+			<to-view-id>/view/jsp/MH02.jsf</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/view/jsp/index.jsf</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+	<navigation-rule>
+		<display-name>MH02</display-name>
+		<from-view-id>/view/jsp/MH02.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/view/jsp/index.jsf</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 16, 2018 10:14:25 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.manage.insurance.model.Insurance" table="tbl_insurance" catalog="mkyongdb">
+        <id name="insuranceInternalId" type="int">
+            <column name="insurance_internal_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="insuranceNumber" type="java.lang.String">
+            <column name="insurance_number" />
+        </property>
+        <property name="insuranceStartDate" type="java.sql.Date">
+            <column name="insurance_start_date" />
+        </property>
+        <property name="insuranceEndDate" type="java.sql.Date">
+            <column name="insurance_end_date" />
+        </property>
+        <property name="placeOfRegister" type="java.lang.String">
+            <column name="place_of_register" />
+        </property>
+    </class>
+</hibernate-mapping>

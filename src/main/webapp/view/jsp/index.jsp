@@ -14,7 +14,7 @@
 	<link href="<c:url value="/view/css/table-style.css" />" rel="stylesheet">
 	</head>
 	<body>
-		<h1>JSF 2.0 + Spring + Hibernate Example 10</h1>
+		<h1>JSF 2.0 + Spring + Hibernate Example 9</h1>
 
 		<h:dataTable value="#{customer.getCustomerList()}" var="c"
 			styleClass="order-table" headerClass="order-table-header"
@@ -72,7 +72,6 @@
 				
 			</h:panelGrid>
 			<h:commandButton action="#{customer.addCustomer()}" value="index"></h:commandButton>
-<%-- 			<h:commandButton value="Submit" action="#{customer.addCustomer()}" /> --%>
 
  		</h:form>
 	</body>

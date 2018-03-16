@@ -4,12 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="customerBo" class="com.manage.insurance.logic.impl.CustomerBoImpl">
-		<property name="customerDao" ref="customerDao" />
+	<bean id="companyLogic" class="com.manage.insurance.logic.impl.CompanyLogicImpl">
+		<property name="companyDao" ref="companyDao" />
 	</bean>
-
-	<bean id="customerDao" class="com.manage.insurance.dao.impl.CustomerDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
+	<bean id="companyDao" class="com.manage.insurance.dao.impl.CompanyDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
 </beans>

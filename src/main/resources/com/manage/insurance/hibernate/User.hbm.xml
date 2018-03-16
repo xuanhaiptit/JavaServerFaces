@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 16, 2018 10:14:25 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.manage.insurance.model.User" table="tbl_user" catalog="mkyongdb">
+        <id name="userInternalId" type="int">
+            <column name="user_internal_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="userFullName" type="java.lang.String">
+            <column name="user_full_name" />
+        </property>
+        <property name="userSexDivision" type="java.lang.String">
+            <column name="user_sex_division" />
+        </property>
+        <property name="birthdate" type="java.sql.Date">
+            <column name="birthdate" />
+        </property>
+        <many-to-one name="company" class="com.manage.insurance.model.Company" fetch="join">
+            <column name="company_internal_id" />
+        </many-to-one>
+        <many-to-one name="insurance" class="com.manage.insurance.model.Insurance" fetch="join">
+            <column name="insurance_internal_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -3,71 +3,80 @@ package com.manage.insurance.bean;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.event.PhaseEvent;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.manage.insurance.logic.CustomerBo;
 import com.manage.insurance.model.Customer;
 
-
+@ManagedBean(name = "customer")
+@SessionScoped
 public class CustomerBean implements Serializable {
-	// DI via Spring
-	CustomerBo customerBo;
+    // DI via Spring
+    @Autowired
+    CustomerBo customerBo;
 
-	public String name;
-	public String address;
+    public String name;
+    public String address;
 
-	private static final long serialVersionUID = 5957846325926627154L;
-//
-	public String doInitIndex() {
-			
-			return "index";
-	}
+    private static final long serialVersionUID = 5957846325926627154L;
 
-	// get all customer data from database
-	public List<Customer> getCustomerList() {
-		return customerBo.findAllCustomer();
-	}
+    //
+    public String doInitIndex() {
 
-	// add a new customer data into database
-	public String addCustomer() {
-		Customer cust = new Customer();
-		cust.setName(getName());
-		cust.setAddress(getAddress());
+        return "index";
+    }
 
-		customerBo.addCustomer(cust);
+    public String doInitCustomer() {
+        return "index";
+    }
 
-		clearForm();
+    // get all customer data from database
+    public List<Customer> getCustomerList() {
+        List<Customer> customers = customerBo.findAllCustomer();
+        System.out.println("customers "+customers.size());
+        return customers;
+    }
 
-		return "test";
-	}
+    // add a new customer data into database
+    public String addCustomer() {
+        Customer cust = new Customer();
+        cust.setName(getName());
+        cust.setAddress(getAddress());
 
-	// clear form values
-	private void clearForm() {
-		setName("");
-		setAddress("");
-	}
+        customerBo.addCustomer(cust);
 
-	public String getName() {
-		return name;
-	}
+        clearForm();
 
-	public void setName(String name) {
-		this.name = name;
-	}
+        return "test";
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    // clear form values
+    private void clearForm() {
+        setName("");
+        setAddress("");
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCustomerBo(CustomerBo customerBo) {
-		this.customerBo = customerBo;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCustomerBo(CustomerBo customerBo) {
+        this.customerBo = customerBo;
+    }
 
 }

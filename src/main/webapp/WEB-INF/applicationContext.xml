@@ -9,5 +9,5 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
 	<!-- Beans Declaration -->
 	<import resource="classes/com/manage/insurance/spring/CustomerBean.xml"/>
- 
+ 	<import resource="classes/com/manage/insurance/spring/Company.xml"/>
 </beans>
